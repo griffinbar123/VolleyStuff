@@ -74,10 +74,10 @@ public class ItemListFragment extends Fragment {
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<ProfModel> mValues;
+        private final List<GriffinModel> mValues;
         private final View mItemDetailFragmentContainer;
 
-        SimpleItemRecyclerViewAdapter(List<ProfModel> items, View itemDetailFragmentContainer) {
+        SimpleItemRecyclerViewAdapter(List<GriffinModel> items, View itemDetailFragmentContainer) {
             mValues = items;
             mItemDetailFragmentContainer = itemDetailFragmentContainer;
         }
@@ -116,7 +116,7 @@ public class ItemListFragment extends Fragment {
         class ViewHolder extends RecyclerView.ViewHolder {
             final TextView mIdView;
             final TextView mContentView;
-            public ProfModel companyModel;
+            public GriffinModel companyModel;
 
             ViewHolder(ItemListContentBinding binding) {
                 super(binding.getRoot());

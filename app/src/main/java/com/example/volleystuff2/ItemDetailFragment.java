@@ -12,7 +12,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class ItemDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
-    private ProfModel mItem;
+    private GriffinModel mItem;
     private CollapsingToolbarLayout mToolbarLayout;
     private TextView mTextView;
 
@@ -52,7 +52,7 @@ public class ItemDetailFragment extends Fragment {
 
     private void updateContent() {
         if (mItem != null) {
-            mTextView.setText("Most recent console:\n" + mItem.getConsole());
+            mTextView.setText("Description:\n" + mItem.getDescription());
             if (mToolbarLayout != null) {
                 mToolbarLayout.setTitle(mItem.getName());
             }

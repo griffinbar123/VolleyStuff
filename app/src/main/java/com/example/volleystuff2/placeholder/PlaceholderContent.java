@@ -9,7 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.volleystuff2.ProfModel;
+import com.example.volleystuff2.GriffinModel;
 import com.example.volleystuff2.R;
 import com.google.gson.Gson;
 import org.json.JSONArray;
@@ -24,13 +24,13 @@ import java.util.Map;
 public class PlaceholderContent {
 
 
-    public static final List<ProfModel> ITEMS = new ArrayList<>();
+    public static final List<GriffinModel> ITEMS = new ArrayList<>();
 
-    public static final Map<String, ProfModel> ITEM_MAP = new HashMap<>();
+    public static final Map<String, GriffinModel> ITEM_MAP = new HashMap<>();
 
     public boolean recreated = false;
 
-    public List<ProfModel> jsonParse(Activity activity) {
+    public List<GriffinModel> jsonParse(Activity activity) {
         String url = activity.getString(R.string.url);
 
         RequestQueue queue = Volley.newRequestQueue(activity);
@@ -41,7 +41,7 @@ public class PlaceholderContent {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject object = response.getJSONObject("record");
-                            JSONArray jsonArray = object.getJSONArray("gameCompanies");
+                            JSONArray jsonArray = object.getJSONArray("movies");
 
                             clearItems();
 
@@ -49,7 +49,7 @@ public class PlaceholderContent {
                                 JSONObject gameCompany = jsonArray.getJSONObject(i);
                                 String json = String.valueOf(gameCompany);
                                 Gson gson = new Gson();
-                                ProfModel model = gson.fromJson(json, ProfModel.class);
+                                GriffinModel model = gson.fromJson(json, GriffinModel.class);
 
                                 addItems(model);
                             }
@@ -72,7 +72,7 @@ public class PlaceholderContent {
         return ITEMS;
     }
 
-    public void addItems(ProfModel model){
+    public void addItems(GriffinModel model){
         ITEMS.add(model);
         ITEM_MAP.put(model.getName(), model);
     }
